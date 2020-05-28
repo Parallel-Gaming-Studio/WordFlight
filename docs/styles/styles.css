@@ -137,7 +137,7 @@ body {
     text-align: center;
     vertical-align: center;
     border-collapse: separate;
-    border-spacing: 1vw 1.3vh;
+    border-spacing: 1vw 0.9vw;
 }
 .table-container td:nth-child(1) {
     width: 10%;
