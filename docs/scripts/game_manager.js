@@ -193,6 +193,9 @@ game.gameController = {
     },
     gsEnd: function (dt) {
         // End Scene
+        
+        // Handle the initials animation
+        game.endPlayerInitials.animateInitials(dt);
 
         // DEBUG
         // Toggle next state
@@ -372,11 +375,9 @@ game.drawOnce = function () {
             // Draw images on the canvas
             this.leaderboardBackground.draw();
             this.leaderboardTitle.draw();
-            this.leaderboardSponsor.draw();
             this.leaderboardClipboard.draw();
             this.leaderboardPlayerScore.draw();
             this.leaderboardPlane.draw();
-            this.leaderboardSponsorLogo.draw();
             this.top10players.adjustStyle();
             this.finalPlayerScore.draw();
 

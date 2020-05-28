@@ -137,8 +137,7 @@ body {
     text-align: center;
     vertical-align: center;
     border-collapse: separate;
-    /*border-spacing: 1.1vw 1.1vw;*/
-    border-spacing: 1vw 1.3vh;
+    border-spacing: 1vw 0.9vw;
 }
 .table-container td:nth-child(1) {
     width: 10%;
@@ -154,9 +153,6 @@ body {
     font-family: roboto-bold;
     background-color: #2581af;
     border-radius: 4px;
-    -moz-box-shadow: 2px 4px 0px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: 2px 4px 0px rgba(0, 0, 0, 0.4);
-    box-shadow: 2px 4px 0px rgba(0, 0, 0, 0.4);
 }
 .top-10-data {
     color: #fff;
@@ -165,7 +161,7 @@ body {
 .Initials {
     position: absolute;
     margin: 0px;
-    text-align: center;
+    text-align: left;
     font-size: 16pt;
     font-family: roboto-bold;
     color: #f41c63;
@@ -368,10 +364,6 @@ body {
     display: none;
 }
 #tutorialOverlay .score-highlight {
-    background-image: url("../images/WordFlight_TutorialOverlay.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
     margin: 0px;
     padding: 0px;
     width: 100%;
@@ -386,10 +378,6 @@ body {
     font-family: Roboto-Bold;
 }
 #tutorialOverlay .mySponsor-highlight {
-    background-image: url("../images/WordFlight_TutorialOverlay2.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
     margin: 0px;
     padding: 0px;
     width: 100%;
@@ -405,10 +393,6 @@ body {
     font-family: Roboto-Bold;
 }
 #tutorialOverlay .plane-highlight {
-    background-image: url("../images/WordFlight_TutorialOverlay3.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
     margin: 0px;
     padding: 0px;
     width: 100%;
@@ -424,10 +408,6 @@ body {
     font-family: Roboto-Bold;
 }
 #tutorialOverlay .keypad-highlight {
-    background-image: url("../images/WordFlight_TutorialOverlay4.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
     margin: 0px;
     padding: 0px;
     width: 100%;
