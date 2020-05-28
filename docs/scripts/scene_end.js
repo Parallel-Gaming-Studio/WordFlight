@@ -256,7 +256,7 @@ game.endPlayerInitials = {
     initials: "",
     // Animation variables
     lastUpdate: 0,
-    toggleUpdate: 0.3,
+    toggleUpdate: 0.35,
     showUpdate: false,
     // Initialize the object
     init: function () {
