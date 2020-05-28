@@ -238,6 +238,8 @@ game.endPlayerScore.init(); // Force initialization of the event handler during 
 game.endPlayerInitials = {
 	// Get handle to div
     div: document.getElementById("endPlayerInitials"),
+    // Initials value
+    initialsValue: document.getElementById("endPlayerInitials").innerHTML,
 	// Declare object transform information
     org_width: 150 * game.scale,
     org_height: 95 * game.scale,
@@ -252,10 +254,18 @@ game.endPlayerInitials = {
     font_size: 0,
     score: 0,
     initials: "",
+    // Animation variables
+    lastUpdate: 0,
+    toggleUpdate: 0.3,
+    showUpdate: false,
     // Initialize the object
     init: function () {
         // Add event listener to the button
         this.div.addEventListener("click", game.endPlayerInitials.clickMe);
+        // Empty the initials
+        this.initialsValue = "";
+        // Reset the last update
+        this.lastUpdate = 0;
     },
 	// Adjust the object's transform
     resize: function () {
@@ -302,6 +312,32 @@ game.endPlayerInitials = {
     clearInitials: function () {
         this.initials = "";
         this.div.innerHTML = this.initials;
+    },
+    // Animate the initials value
+    animateInitials: function (dt) {
+        // Update the time since the last update
+        this.lastUpdate += dt;
+        // Update the visible characters after toggleUpdate milliseconds
+        if (this.lastUpdate >= this.toggleUpdate) {
+            // Display/hide an underscore in the initials field
+            if (this.initials.length < 2) {
+                // Display
+                if (!this.showUpdate) {
+                    this.initialsValue = this.initials + "_";
+                } else {
+                    // Hide
+                    this.initialsValue = this.initials;
+                }
+                // Toggle the update
+                this.showUpdate = !this.showUpdate;
+            } else {
+                this.initialsValue = this.initials;
+            }
+            // Reset the last update time
+            this.lastUpdate = 0;
+        }
+        // Write to the div element
+        this.div.innerHTML = this.initialsValue;
     },
 	// Handle user interaction based on game state
     clickMe: function () {

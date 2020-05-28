@@ -193,6 +193,9 @@ game.gameController = {
     },
     gsEnd: function (dt) {
         // End Scene
+        
+        // Handle the initials animation
+        game.endPlayerInitials.animateInitials(dt);
 
         // DEBUG
         // Toggle next state
