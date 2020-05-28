@@ -364,10 +364,6 @@ body {
     display: none;
 }
 #tutorialOverlay .score-highlight {
-    background-image: url("../images/WordFlight_TutorialOverlay.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
     margin: 0px;
     padding: 0px;
     width: 100%;
@@ -382,10 +378,6 @@ body {
     font-family: Roboto-Bold;
 }
 #tutorialOverlay .mySponsor-highlight {
-    background-image: url("../images/WordFlight_TutorialOverlay2.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
     margin: 0px;
     padding: 0px;
     width: 100%;
@@ -401,10 +393,6 @@ body {
     font-family: Roboto-Bold;
 }
 #tutorialOverlay .plane-highlight {
-    background-image: url("../images/WordFlight_TutorialOverlay3.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
     margin: 0px;
     padding: 0px;
     width: 100%;
@@ -420,10 +408,6 @@ body {
     font-family: Roboto-Bold;
 }
 #tutorialOverlay .keypad-highlight {
-    background-image: url("../images/WordFlight_TutorialOverlay4.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
     margin: 0px;
     padding: 0px;
     width: 100%;
