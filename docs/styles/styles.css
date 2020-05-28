@@ -154,9 +154,6 @@ body {
     font-family: roboto-bold;
     background-color: #2581af;
     border-radius: 4px;
-    -moz-box-shadow: 2px 4px 0px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: 2px 4px 0px rgba(0, 0, 0, 0.4);
-    box-shadow: 2px 4px 0px rgba(0, 0, 0, 0.4);
 }
 .top-10-data {
     color: #fff;
