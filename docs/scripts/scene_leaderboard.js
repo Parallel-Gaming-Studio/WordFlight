@@ -128,7 +128,7 @@ game.leaderboardPlayerScore = {
     }
 };
 
-game.leaderboardSponsor = {
+/*game.leaderboardSponsor = {
 	// Get handle to image
     image: document.getElementById("wordFlightSponsor"),
 	// Declare object transform information
@@ -182,7 +182,7 @@ game.leaderboardSponsorLogo = {
         this.resize();
         engine.context.drawImage(this.image(), this.posX, this.posY, this.width, this.height);
     }
-};
+};*/
 
 game.finalPlayerScore = {
 	// Get handle to div
@@ -268,8 +268,8 @@ game.leaderboardAnimation = {
         
         // Continue drawing images
         game.leaderboardTitle.draw();
-        game.leaderboardSponsor.draw();
-        game.leaderboardSponsorLogo.draw();
+        /*game.leaderboardSponsor.draw();
+        game.leaderboardSponsorLogo.draw();*/
         game.leaderboardPlayerScore.draw();
         game.finalPlayerScore.draw();
         game.leaderboardClipboard.draw();
