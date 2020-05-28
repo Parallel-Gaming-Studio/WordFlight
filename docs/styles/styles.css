@@ -137,7 +137,6 @@ body {
     text-align: center;
     vertical-align: center;
     border-collapse: separate;
-    /*border-spacing: 1.1vw 1.1vw;*/
     border-spacing: 1vw 1.3vh;
 }
 .table-container td:nth-child(1) {
@@ -154,9 +153,6 @@ body {
     font-family: roboto-bold;
     background-color: #2581af;
     border-radius: 4px;
-    -moz-box-shadow: 2px 4px 0px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: 2px 4px 0px rgba(0, 0, 0, 0.4);
-    box-shadow: 2px 4px 0px rgba(0, 0, 0, 0.4);
 }
 .top-10-data {
     color: #fff;
@@ -165,7 +161,7 @@ body {
 .Initials {
     position: absolute;
     margin: 0px;
-    text-align: center;
+    text-align: left;
     font-size: 16pt;
     font-family: roboto-bold;
     color: #f41c63;
@@ -288,8 +284,8 @@ body {
     vertical-align: middle;
 }
 #difficultyOverlay p {
-    padding: 1vh 1vw;
-    font-size: 7vh;
+    padding: 0.5vh 0.5vw;
+    font-size: 6vh;
     text-decoration: none;
     font-family: BigShouldersDisplay-Semibold;
     color: #E4E4E4;
@@ -298,7 +294,7 @@ body {
     transition: 0.3s;
 }
 #difficultyOverlay a {
-    padding: 1vh 1vw;
+    padding: 0.5vh 0.5vw;
     font-size: 5vh;
     text-decoration: none;
     font-family: Roboto-Bold;

@@ -32,7 +32,7 @@ switch ($difficulty):
         if ($conn) {
             // Select a random word and its sponsor
             // Prepare the SQL query statement
-            $stmt = $conn->prepare("SELECT TOP (1) [word], [sponsor_name] FROM [FlyWithButchOhareDB_Copy].[dbo].[wordflightwords] A JOIN [FlyWithButchOhareDB_Copy].[dbo].[wordflightsponsors] B ON A.[sponsor_id]=B.[sponsor_id] WHERE LEN([word]) BETWEEN 5 AND 9 ORDER BY NEWID();");
+            $stmt = $conn->prepare("SELECT TOP (1) [word], [sponsor_name] FROM [FlyWithButchOhareDB_Copy].[dbo].[wordflightwords] A JOIN [FlyWithButchOhareDB_Copy].[dbo].[wordflightsponsors] B ON A.[sponsor_id]=B.[sponsor_id] WHERE LEN([word]) < 9 ORDER BY NEWID();");
 
             // Perform the SQL query
             $stmt->execute();

@@ -399,17 +399,7 @@ game.difficultyOverlay = {
             game.difficultyOverlay.close();
         }
     },
-    resize: function () {
-        if (parseInt(this.divContent.offsetHeight) > 0) {
-            // Set to 0, then attempt to update
-            this.divContent.style.top = "0px";
-            // Align the div element in the center of the screen
-            this.divContent.style.top = engine.height / 2 - this.divContent.offsetHeight / 2 + "px";
-        } else {
-            // Set to 10
-            this.divContent.style.top = "10px";
-        }
-    }
+    resize: function () { }
 };
 game.difficultyOverlay.init() // Force initialize all objects in the difficulty overlay
 
