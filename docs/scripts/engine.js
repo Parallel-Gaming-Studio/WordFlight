@@ -273,6 +273,7 @@ engine.canvas.onmousewheel = engine.input.onmousewheel.bind(engine.input);
 // React proportions
 engine.widthProportion = (Math.abs(1920 - window.innerWidth) / 1920).toPrecision(4);
 engine.heightProportion = (Math.abs(1080 - window.innerHeight) / 1080).toPrecision(4);
+engine.preserveAspectRatio = (1 - Math.max(engine.widthProportion, engine.heightProportion));
 
 // DEBUG
 // Report viewport dimensions when the window loads
@@ -301,6 +302,7 @@ engine.windowControl = {
         engine.widthProportion = ((engine.widthDifference) / 1920).toPrecision(4);
         engine.heightProportion = ((engine.heightDifference) / 1080).toPrecision(4);
         engine.dimensionProportion = engine.widthProportion > engine.heightProportion ? engine.widthProportion : engine.heightProportion;
+        engine.preserveAspectRatio = (1 - Math.max(engine.widthProportion, engine.heightProportion));
 
         // Set the engine's width to the canvas' width
         engine.width = engine.canvas.width;

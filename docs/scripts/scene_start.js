@@ -13,10 +13,10 @@ game.wordFlightTitle = {
     org_posY: 40,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
         this.posX = engine.width / 2 - this.width / 2;
-        this.posY = Math.max(40, Math.min(50, this.org_posY * (1 - Math.max(engine.widthProportion, engine.heightProportion))));
+        this.posY = Math.max(40, Math.min(50, this.org_posY * engine.preserveAspectRatio));
     },
 	// Draw the object
     draw: function () {
@@ -81,8 +81,8 @@ game.startScene = {
     posY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
         this.posX = engine.width / 2 - this.width / 2;
         this.posY = engine.height / 4 - this.height / 2;
     },
@@ -112,8 +112,8 @@ game.menuButton = {
     },
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Top-Right Side
         this.posX = engine.width - this.width;
@@ -195,8 +195,8 @@ game.startButton = {
     },
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
         this.posX = engine.width / 1.98 - this.width / 2;
         this.posY = engine.height / 3 - this.height / 2;
     },
@@ -242,8 +242,8 @@ game.leaderboardButton = {
     },
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
         this.posX = engine.width / 1.98 - this.width / 2;
         this.posY = engine.height / 2 - this.height / 2;
     },
@@ -297,8 +297,8 @@ game.quitButton = {
     },
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
         this.posX = engine.width / 1.98 - this.width / 2;
         this.posY = engine.height / 1.5 - this.height / 2;
     },

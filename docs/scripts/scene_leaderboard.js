@@ -39,9 +39,9 @@ game.leaderboardPlane = {
     animPosY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.posX = engine.width - (3000 * (1 - Math.max(engine.widthProportion, engine.heightProportion)));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
+        this.posX = engine.width - (3000 * engine.preserveAspectRatio);
         this.posY = engine.height - (550 * (1 - engine.heightProportion));
 
         // Check for animation
@@ -68,10 +68,10 @@ game.leaderboardTitle = {
     org_posY: 50,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
         this.posX = 20;
-        this.posY = Math.max(40, Math.min(50, this.org_posY * (1 - Math.max(engine.widthProportion, engine.heightProportion))));
+        this.posY = Math.max(40, Math.min(50, this.org_posY * engine.preserveAspectRatio));
     },
 	// Draw the object
     draw: function () {
@@ -92,9 +92,9 @@ game.leaderboardClipboard = {
     posY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * .90 * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * .90 * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.posX = engine.width - this.width - (375 * (1 - Math.max(engine.widthProportion, engine.heightProportion)));
+        this.width = this.org_width * .90 * engine.preserveAspectRatio;
+        this.height = this.org_height * .90 * engine.preserveAspectRatio;
+        this.posX = engine.width - this.width - (375 * engine.preserveAspectRatio);
         this.posY = 25;
     },
 	// Draw the object
@@ -116,10 +116,10 @@ game.leaderboardPlayerScore = {
     posY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.posX = 10 * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.posY = 230 * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
+        this.posX = 10 * engine.preserveAspectRatio;
+        this.posY = 230 * engine.preserveAspectRatio;
     },
 	// Draw the object
     draw: function () {
@@ -142,9 +142,9 @@ game.leaderboardPlayerScore = {
     posY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.posX = engine.width - this.width - (50 * (1 - Math.max(engine.widthProportion, engine.heightProportion)));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
+        this.posX = engine.width - this.width - (50 * engine.preserveAspectRatio);
         this.posY = engine.height - this.height;
     },
 	// Draw the object
@@ -208,15 +208,15 @@ game.finalPlayerScore = {
 	// Adjust the object's transform
     resize: function () {
 
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Left Side
         this.posX = game.leaderboardPlayerScore.posX + game.leaderboardPlayerScore.width / 2 - this.width / 2;
         this.posY = game.leaderboardPlayerScore.posY + game.leaderboardPlayerScore.height / 2 - this.height / 2;
 
         // Adjust font size
-        this.font_size = this.org_font_size * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.font_size = this.org_font_size * engine.preserveAspectRatio;
     },
 	// Draw the object
     draw: function () {
@@ -251,7 +251,7 @@ game.finalPlayerScore.init(); // Force object initialization on first script loa
 //LeaderboardAnimation
 game.leaderboardAnimation = {
     animStartX: game.leaderboardPlane.posX,
-    animEndX: engine.width - (2300 * (1 - Math.max(engine.widthProportion, engine.heightProportion))),
+    animEndX: engine.width - (2300 * engine.preserveAspectRatio),
     animStartY: game.leaderboardPlane.posY,
     animEndY: game.leaderboardPlane.posY,
     animDistance: 0,
@@ -304,7 +304,7 @@ game.leaderboardAnimation = {
             
         // Reset plane animation
         this.animStartX = game.leaderboardPlane.posX;
-        this.animEndX = engine.width - (2300 * (1 - Math.max(engine.widthProportion, engine.heightProportion)));
+        this.animEndX = engine.width - (2300 * engine.preserveAspectRatio);
         this.animStartY = game.leaderboardPlane.posY;
         this.animEndY = game.leaderboardPlane.posY;
         this.animDistance = 0;
@@ -340,15 +340,15 @@ game.top10players = {
 	// Adjust the object's transform
     resize: function () {
         this.width = game.leaderboardClipboard.width * .80;
-        this.height = game.leaderboardClipboard.height - 280 * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.height = game.leaderboardClipboard.height - 280 * engine.preserveAspectRatio;
 
         // Attach Left Side with Buffer
         this.posX = game.leaderboardClipboard.posX + (game.leaderboardClipboard.width - this.width) / 2;
-        this.posY = game.leaderboardClipboard.posY + 250 * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.posY = game.leaderboardClipboard.posY + 250 * engine.preserveAspectRatio;
             // game.leaderboardClipboard.height / 2 - (this.height * .28);
 
         // Update font size
-        this.font_size = this.org_font_size * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.font_size = this.org_font_size * engine.preserveAspectRatio;
         
         // Update CSS for all children
         $("#lbContainerDiv").width(this.width);
@@ -448,8 +448,8 @@ game.leaderboardMenuButton = {
     posY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
         this.posX = engine.width - this.width;
         this.posY = Math.max(50, Math.min(40, this.org_posY - engine.heightDifference));
     },
@@ -487,10 +487,10 @@ game.leaderboardRetryButton = {
     },
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.posX = 100 * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.posY = engine.height - this.height - (50 * (1 - Math.max(engine.widthProportion, engine.heightProportion)));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
+        this.posX = 100 * engine.preserveAspectRatio;
+        this.posY = engine.height - this.height - (50 * engine.preserveAspectRatio);
     },
 	// Draw the object
     draw: function () {

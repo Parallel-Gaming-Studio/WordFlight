@@ -58,11 +58,11 @@ game.playTitle = {
     org_posY: 50,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
         
         this.posX = 20;
-        this.posY = Math.max(40, Math.min(50, this.org_posY * (1 - Math.max(engine.widthProportion, engine.heightProportion))));
+        this.posY = Math.max(40, Math.min(50, this.org_posY * engine.preserveAspectRatio));
     },
 	// Draw the object
     draw: function () {
@@ -85,11 +85,11 @@ game.playSponsor = {
     posY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Bottom Side
-        this.posX = engine.width - this.width - (50 * (1 - Math.max(engine.widthProportion, engine.heightProportion)));
+        this.posX = engine.width - this.width - (50 * engine.preserveAspectRatio);
         this.posY = engine.height - this.height;
     },
 	// Draw the object
@@ -143,12 +143,12 @@ game.playTimer = {
     posY: 0,
 	// Declare object transform information
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Left Side
         this.posX = this.org_posX;
-        this.posY = Math.max(engine.height * 0.25, game.playTitle.height + game.playTitle.posY + 40 * (1 - Math.max(engine.widthProportion, engine.heightProportion)));
+        this.posY = Math.max(engine.height * 0.25, game.playTitle.height + game.playTitle.posY + 40 * engine.preserveAspectRatio);
             //Math.max(game.playTitle.height + game.playTitle.posY + 10, engine.height / 2 - this.height);
     },
 	// Draw the object
@@ -172,8 +172,8 @@ game.playLetterSpace = {
     posY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Left Side with Buffer
         this.posX = Math.max(20, Math.min(5, this.org_posX - engine.widthDifference));
@@ -221,11 +221,11 @@ game.playLetterSpaces = {
 	// Adjust the object's transform
     resize: function () {
         this.width = game.playSponsor.posX - 20;
-        this.height = game.playLetterSpace.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion)); // + this.btnMargin;
+        this.height = game.playLetterSpace.org_height * engine.preserveAspectRatio; // + this.btnMargin;
 
         // Attach Left Side with Buffer
         this.posX = Math.max(20, Math.min(30, this.org_posX - engine.widthDifference));
-        this.posY = Math.max(game.playTimer.height + game.playTimer.posY + 20 * (1 - Math.max(engine.widthProportion, engine.heightProportion)), Math.min(game.inputKeypad.posY - this.height - 40), ((game.inputKeypad.posY - (game.playTimer.height + game.playTimer.posY)) / 2));
+        this.posY = Math.max(game.playTimer.height + game.playTimer.posY + 20 * engine.preserveAspectRatio, Math.min(game.inputKeypad.posY - this.height - 40), ((game.inputKeypad.posY - (game.playTimer.height + game.playTimer.posY)) / 2));
 
         this.btnWidth = (this.width - ((2 * this.btnMargin) + ((this.btnPerRow - 1) * (2 * this.btnMargin)))) / (14) - 2;
         this.btnHeight = this.height; //game.playLetterSpace.height;
@@ -447,8 +447,8 @@ game.playPlaneDorsalFin = {
     posY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Left Side with Buffer
         this.posX = game.playPlaneTail.posX - this.width / 4;
@@ -476,8 +476,8 @@ game.playPlaneLeftInnerEngine = {
     posY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Left Side with Buffer
         this.posX = game.playPlaneLeftWing.posX + (game.playPlaneLeftWing.width / 1.5) - this.width / 2;
@@ -505,8 +505,8 @@ game.playPlaneLeftOuterEngine = {
     posY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Left Side with Buffer
         this.posX = game.playPlaneLeftWing.posX + (game.playPlaneLeftWing.width / 2) - this.width / 3;
@@ -534,8 +534,8 @@ game.playPlaneRightInnerEngine = {
     posY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Left Side with Buffer
         this.posX = game.playPlaneRightWing.posX + (game.playPlaneRightWing.width / 1.5) - this.width / 2;
@@ -563,8 +563,8 @@ game.playPlaneRightOuterEngine = {
     posY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Left Side with Buffer
         this.posX = game.playPlaneRightWing.posX + (game.playPlaneRightWing.width / 2) - this.width / 3;
@@ -592,8 +592,8 @@ game.playPlaneFuselage = {
     posY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         this.posX = game.playPlaneNose.posX - this.width;
         this.posY = (game.playPlaneNose.posY);
@@ -620,8 +620,8 @@ game.playPlaneLeftRearWing = {
     posY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Left Side with Buffer
         this.posX = game.playPlaneTail.posX - this.width / 4;
@@ -649,8 +649,8 @@ game.playPlaneLeftWing = {
     posY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Left Side with Buffer
         this.posX = game.playPlaneFuselage.posX + (game.playPlaneFuselage.width * 0.2);
@@ -678,8 +678,8 @@ game.playPlaneNose = {
     posY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Left Side with Buffer
         this.posX = game.planeCanvasBG.posX + game.planeCanvasBG.width - 20 - this.width;
@@ -707,8 +707,8 @@ game.playPlaneRightRearWing = {
     posY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Left Side with Buffer
         this.posX = game.playPlaneTail.posX - this.width / 4;
@@ -736,8 +736,8 @@ game.playPlaneRightWing = {
     posY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Left Side with Buffer
         this.posX = game.playPlaneFuselage.posX + (game.playPlaneFuselage.width * 0.2);
@@ -765,8 +765,8 @@ game.playPlaneTail = {
     posY: 0,
 	// Adjust the object's transform
     resize: function () {
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Left Side with Buffer
         this.posX = game.playPlaneFuselage.posX - this.width;
@@ -899,15 +899,15 @@ game.playTimerBox = {
 	// Adjust the object's transform
     resize: function () {
 
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Left Side
-        this.posX = game.playTimer.posX + this.org_posX * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.posY = game.playTimer.posY + this.org_posY * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.posX = game.playTimer.posX + this.org_posX * engine.preserveAspectRatio;
+        this.posY = game.playTimer.posY + this.org_posY * engine.preserveAspectRatio;
 
         // Adjust font size
-        this.font_size = this.org_font_size * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.font_size = this.org_font_size * engine.preserveAspectRatio;
     },
 	// Draw the object
     draw: function () {
@@ -1009,15 +1009,15 @@ game.playScore = {
 	// Adjust the object's transform
     resize: function () {
 
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Left Side
-        this.posX = game.playTimer.posX + this.org_posX * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.posY = game.playTimer.posY + this.org_posY * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.posX = game.playTimer.posX + this.org_posX * engine.preserveAspectRatio;
+        this.posY = game.playTimer.posY + this.org_posY * engine.preserveAspectRatio;
 
         // Adjust font size
-        this.font_size = this.org_font_size * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.font_size = this.org_font_size * engine.preserveAspectRatio;
     },
 	// Draw the object
     draw: function () {
@@ -1072,21 +1072,21 @@ game.playScoreBox = {
 	// Adjust the object's transform
     resize: function () {
 
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Left Side
-        this.posX = game.playTimer.posX + this.org_posX * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.posY = game.playTimer.posY - this.org_posY * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.posX = game.playTimer.posX + this.org_posX * engine.preserveAspectRatio;
+        this.posY = game.playTimer.posY - this.org_posY * engine.preserveAspectRatio;
 
         // Adjust font size
-        this.font_size = this.org_font_size * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.font_size = this.org_font_size * engine.preserveAspectRatio;
 
         // Animation adjustments
-        this.animStartX = game.playTimer.posX + this.org_posX * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.animStartY = game.playTimer.posY - this.org_posY * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.animEndX = game.playTimer.posX + this.org_destX * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.animEndY = game.playTimer.posY - this.org_destY * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.animStartX = game.playTimer.posX + this.org_posX * engine.preserveAspectRatio;
+        this.animStartY = game.playTimer.posY - this.org_posY * engine.preserveAspectRatio;
+        this.animEndX = game.playTimer.posX + this.org_destX * engine.preserveAspectRatio;
+        this.animEndY = game.playTimer.posY - this.org_destY * engine.preserveAspectRatio;
 
     },
 	// Draw the object
@@ -1156,8 +1156,8 @@ game.playMenuButton = {
 	// Adjust the object's transform
     resize: function () {
 
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion));
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio;
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Top-Right Side
         this.posX = engine.width - this.width;
@@ -1195,8 +1195,8 @@ game.playKeyPadSpace = {
 	// Adjust the object's transform
     resize: function () {
 
-        this.width = this.org_width * (1 - Math.max(engine.widthProportion, engine.heightProportion)); //Math.min(, (this.org_width + 5) * 13);
-        this.height = this.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+        this.width = this.org_width * engine.preserveAspectRatio; //Math.min(, (this.org_width + 5) * 13);
+        this.height = this.org_height * engine.preserveAspectRatio;
 
         // Attach Left Side with Buffer
         this.posX = Math.max(60, Math.min(40, this.org_posX - engine.widthDifference));
@@ -1238,11 +1238,11 @@ game.inputKeypad = {
         switch (game.currState) {
             case 'play':
                 this.width = game.playSponsor.posX - 40;
-                this.height = (game.playKeyPadSpace.org_height * (1 - Math.max(engine.widthProportion, engine.heightProportion)) + this.btnMargin * 4) * 2;
+                this.height = (game.playKeyPadSpace.org_height * engine.preserveAspectRatio + this.btnMargin * 4) * 2;
 
                 // Attach Left Side with Buffer
                 this.posX = Math.max(20, Math.min(30, this.org_posX - engine.widthDifference));
-                this.posY = engine.height - this.height - 50 * (1 - Math.max(engine.widthProportion, engine.heightProportion));
+                this.posY = engine.height - this.height - 50 * engine.preserveAspectRatio;
 
                 this.btnWidth = this.width / 14;
 

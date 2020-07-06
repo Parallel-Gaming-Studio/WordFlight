@@ -495,8 +495,8 @@ game.tutorialOverlay = {
         game.tutorialOverlay.startGame();
     },
     resize: function() {
-        this.divContent.style.fontSize = this.org_select_size * (1 - Math.max(engine.widthProportion, engine.heightProportion)) + "px";
-        this.closeButton.style.fontSize = this.org_closer_size * (1 - Math.max(engine.widthProportion, engine.heightProportion)) + "px";
+        this.divContent.style.fontSize = this.org_select_size * engine.preserveAspectRatio + "px";
+        this.closeButton.style.fontSize = this.org_closer_size * engine.preserveAspectRatio + "px";
     },
     pagesUpdate: (key) => {
         game.tutorialOverlay.activeE = key - 1;
