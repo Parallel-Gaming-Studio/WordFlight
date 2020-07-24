@@ -128,62 +128,6 @@ game.leaderboardPlayerScore = {
     }
 };
 
-/*game.leaderboardSponsor = {
-	// Get handle to image
-    image: document.getElementById("wordFlightSponsor"),
-	// Declare object transform information
-    org_width: 290 * game.scale,
-    org_height: 295 * game.scale,
-    width: 0,
-    height: 0,
-    org_posX: 1550,
-    org_posY: 825,
-    posX: 0,
-    posY: 0,
-	// Adjust the object's transform
-    resize: function () {
-        this.width = this.org_width * engine.preserveAspectRatio;
-        this.height = this.org_height * engine.preserveAspectRatio;
-        this.posX = engine.width - this.width - (50 * engine.preserveAspectRatio);
-        this.posY = engine.height - this.height;
-    },
-	// Draw the object
-    draw: function () {
-        this.resize();
-        engine.context.drawImage(this.image, this.posX, this.posY, this.width, this.height);
-    }
-};
-
-game.leaderboardSponsorLogo = {
-	// Get handle to image
-    image: function () {
-        return document.getElementById(game.getSponsor());
-    },
-	// Declare object transform information
-    org_width: 200 * game.scale,
-    org_height: 200 * game.scale,
-    width: 0,
-    height: 0,
-    org_posX: 1590,
-    org_posY: 785,
-    posX: 0,
-    posY: 0,
-	// Adjust the object's transform
-    resize: function () {
-        this.width = game.leaderboardSponsor.width * 0.95;
-        this.height = this.width;
-
-        // Attach Bottom Side
-        this.posX = game.leaderboardSponsor.posX + (game.leaderboardSponsor.width - this.width) / 2;
-        this.posY = game.leaderboardSponsor.posY + game.leaderboardSponsor.height / 2 - this.height / 3;
-    },
-	// Draw the object
-    draw: function () {
-        this.resize();
-        engine.context.drawImage(this.image(), this.posX, this.posY, this.width, this.height);
-    }
-};*/
-
 game.finalPlayerScore = {
 	// Get handle to div
     div: document.getElementById("finalPlayerScore"),
@@ -248,7 +192,7 @@ game.finalPlayerScore = {
 };
 game.finalPlayerScore.init(); // Force object initialization on first script load
 
-//LeaderboardAnimation
+// LeaderboardAnimation
 game.leaderboardAnimation = {
     animStartX: game.leaderboardPlane.posX,
     animEndX: engine.width - (2300 * engine.preserveAspectRatio),
@@ -315,7 +259,7 @@ game.leaderboardAnimation = {
     }
 };
 
-//Leaderboard Table
+// Leaderboard Table
 game.top10players = {
 	// Get handle to div
     div: document.getElementById("top10table"),

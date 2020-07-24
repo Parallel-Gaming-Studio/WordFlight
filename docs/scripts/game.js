@@ -58,10 +58,12 @@ game.lastTimeSized = new Date();
 game.player = {
     score: 250,
     initials: "CD",
+    words: [],
     // Reset player object variables
     reset: function () {
         this.score = 0;
         this.initials = "";
+        this.words = [];
         // Reset global score
         game.score = 0;
     }
@@ -693,6 +695,7 @@ game.databaseQuery = function () {
         if (this.readyState == 4 && this.status == 200) {
             // Parse the JSON package from PHP
             var selection = JSON.parse(this.responseText);
+
             // Read through the JSON results
             for (var a = 0; a < selection.length; a++) {
                 // Set and format the next word
@@ -702,8 +705,9 @@ game.databaseQuery = function () {
             }
         }
     }
+
     // Send a request to PHP for a new word
-    ajax.open("GET", "scripts/word_generator.php?d=" + game.difficulty, true);
+    ajax.open("GET", `scripts/word_generator.php?d=${game.difficulty}&words=${JSON.stringify(game.player.words)}`, true);
     ajax.send();
 }
 

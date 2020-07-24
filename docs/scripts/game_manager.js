@@ -354,6 +354,13 @@ game.drawOnce = function () {
             
             // Display Snackbar
             this.playTutorial.draw();
+
+            // Update the list of words already used
+            if (game.word != "") {
+                game.player.words.push(game.word.toLowerCase());
+                const mySet = new Set(game.player.words);
+                game.player.words = [...mySet];
+            }
             break;
         case 'end':
             // Draw images on the canvas

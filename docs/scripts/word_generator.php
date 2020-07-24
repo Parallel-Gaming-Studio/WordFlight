@@ -7,13 +7,23 @@ $conn = $pdo;
 
 //Retrieve variable from AJAX
 $difficulty = $_GET['d'];
+$wordList = $_GET['words'];
+
+$extraNotes = '';
+
+if ($wordList) {
+    $wordList = json_decode($wordList);
+    $extraNotes = "('" . implode("','", $wordList) . "')";
+} else {
+    $extraNotes = "('')";
+}
 
 switch ($difficulty):
     case "easy":
         if ($conn) {
             // Select a random word and its sponsor
             // Prepare the SQL query statement
-            $stmt = $conn->prepare("SELECT TOP (1) [word], [sponsor_name] FROM [FlyWithButchOhareDB_Copy].[dbo].[wordflightwords] A JOIN [FlyWithButchOhareDB_Copy].[dbo].[wordflightsponsors] B ON A.[sponsor_id]=B.[sponsor_id] WHERE LEN([word]) < 6 ORDER BY NEWID();");
+            $stmt = $conn->prepare("SELECT TOP (1) [word], [sponsor_name] FROM [FlyWithButchOhareDB_Copy].[dbo].[wordflightwords] A JOIN [FlyWithButchOhareDB_Copy].[dbo].[wordflightsponsors] B ON A.[sponsor_id]=B.[sponsor_id] WHERE LEN([word]) < 6 AND [word] NOT IN $extraNotes ORDER BY NEWID();");
 
             // Perform the SQL query
             $stmt->execute();
@@ -32,7 +42,7 @@ switch ($difficulty):
         if ($conn) {
             // Select a random word and its sponsor
             // Prepare the SQL query statement
-            $stmt = $conn->prepare("SELECT TOP (1) [word], [sponsor_name] FROM [FlyWithButchOhareDB_Copy].[dbo].[wordflightwords] A JOIN [FlyWithButchOhareDB_Copy].[dbo].[wordflightsponsors] B ON A.[sponsor_id]=B.[sponsor_id] WHERE LEN([word]) < 9 ORDER BY NEWID();");
+            $stmt = $conn->prepare("SELECT TOP (1) [word], [sponsor_name] FROM [FlyWithButchOhareDB_Copy].[dbo].[wordflightwords] A JOIN [FlyWithButchOhareDB_Copy].[dbo].[wordflightsponsors] B ON A.[sponsor_id]=B.[sponsor_id] WHERE LEN([word]) < 9 AND [word] NOT IN $extraNotes ORDER BY NEWID();");
 
             // Perform the SQL query
             $stmt->execute();
@@ -51,7 +61,7 @@ switch ($difficulty):
         if ($conn) {
             // Select a random word and its sponsor
             // Prepare the SQL query statement
-            $stmt = $conn->prepare("SELECT TOP (1) [word], [sponsor_name] FROM [FlyWithButchOhareDB_Copy].[dbo].[wordflightwords] A JOIN [FlyWithButchOhareDB_Copy].[dbo].[wordflightsponsors] B ON A.[sponsor_id]=B.[sponsor_id] ORDER BY NEWID();");
+            $stmt = $conn->prepare("SELECT TOP (1) [word], [sponsor_name] FROM [FlyWithButchOhareDB_Copy].[dbo].[wordflightwords] A JOIN [FlyWithButchOhareDB_Copy].[dbo].[wordflightsponsors] B ON A.[sponsor_id]=B.[sponsor_id] WHERE [word] NOT IN $extraNotes ORDER BY NEWID();");
 
             // Perform the SQL query
             $stmt->execute();
@@ -69,6 +79,5 @@ switch ($difficulty):
     default:
         echo "<script>console.log('Error: Difficulty not set')";
 endswitch;
-
 
 $conn = null;
