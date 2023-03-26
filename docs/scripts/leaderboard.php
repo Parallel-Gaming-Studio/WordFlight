@@ -17,4 +17,7 @@ $result = $stmt->fetchAll();
 
 // Pack the result with JSON and return to AJAX
 echo json_encode( $result );
+
+$pdo = null;
+$conn = null;
 ?>
